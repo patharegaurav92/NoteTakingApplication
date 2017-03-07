@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NoteTakingApplication</string>
+    <string name="addphoto">Add Photo</string>
+    <string name="action_settings">Uninstall</string>
+</resources>
