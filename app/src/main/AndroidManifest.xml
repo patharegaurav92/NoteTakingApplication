@@ -24,7 +24,8 @@
         </activity>
         <activity
             android:name=".AddPhotoActivity"
-            android:label="@string/addphoto" />
+            android:label="@string/addphoto"
+            android:parentActivityName=".MainActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -37,7 +38,7 @@
         </provider>
 
         <activity android:name=".PhotoActivity" />
-        <activity android:name=".PhotoActivity2" android:label="View Photo"></activity>
+        <activity android:name=".PhotoActivity2" android:label="@string/viewPhoto" android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -56,6 +56,8 @@ public class AddPhotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_photo);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         previewImageText = (TextView) findViewById(R.id.textView2);
         takePhoto = (Button) findViewById(R.id.click_photo_button);
         caption_editText = (EditText) findViewById(R.id.editText);

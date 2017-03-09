@@ -27,7 +27,7 @@ import static android.R.id.edit;
 public class PhotoActivity2 extends AppCompatActivity {
 TextView captionTextView;
     ImageView photo;
-    Button delete,edit,back;
+    Button delete,edit;
     Uri file;
     Context ctx = this;
     DatabaseOperations dop;
@@ -35,6 +35,7 @@ TextView captionTextView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo2);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent receivePhoto = getIntent();
         Bundle receiveBundle = receivePhoto.getExtras();
         String caption = receiveBundle.getString("caption");
@@ -46,7 +47,7 @@ TextView captionTextView;
         photo = (ImageView) findViewById(R.id.photo_image_view);
         delete = (Button) findViewById(R.id.delete_button);
         edit = (Button) findViewById(R.id.edit_button);
-        back = (Button) findViewById(R.id.back_button);
+        //back = (Button) findViewById(R.id.back_button);
         captionTextView.setText(caption);
         File file1 = new File(path);
 
@@ -89,14 +90,6 @@ TextView captionTextView;
                 startActivity(i);
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(PhotoActivity2.this,MainActivity.class);
-                startActivity(i);
-            }
-        });
-
 
     }
 }

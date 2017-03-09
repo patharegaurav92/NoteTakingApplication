@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     DatabaseOperations dop;
     String[] photo_names;
@@ -51,18 +53,21 @@ public class MainActivity extends AppCompatActivity {
         dop = new DatabaseOperations(this);
         long count = dop.getPhotoCount(dop);
         Log.v("count value ", "count" + count);
-        final String[] photo_names = new String[(int)count];
+        final ArrayList<String> photo_names = new ArrayList<String>();
         if(count > 0) {
             Cursor c = dop.getPhotoCaption(dop);
             for(int i=0;i<=count-1;i++){
                 if(c.moveToNext()){
 
-                    photo_names[i] = c.getString(0);
+                    photo_names.add(c.getString(0));
                 }
             }
             Log.v("count value ", "count" + count);
 
-            ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, photo_names);
+            PhotoAdapter adapter = new PhotoAdapter(this,photo_names);
+
+
+            //ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, photo_names);
             listView = (ListView) findViewById(R.id.activity_photo);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                    // Log.v("Clicked","Clicked "+position);
                     String photo_no=null;
                     position+=1;
-                    Cursor cu = dop.getPhotoNumber(dop,photo_names[position-1]);
+                    Cursor cu = dop.getPhotoNumber(dop,photo_names.get(position-1));
                     while(cu.moveToNext()){
                         photo_no = cu.getString(0);
                     }
