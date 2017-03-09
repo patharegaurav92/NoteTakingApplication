@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             Cursor c = dop.getPhotoCaption(dop);
             for(int i=0;i<=count-1;i++){
                 if(c.moveToNext()){
+
                     photo_names[i] = c.getString(0);
                 }
             }
