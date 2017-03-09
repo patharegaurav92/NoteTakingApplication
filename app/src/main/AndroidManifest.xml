@@ -37,7 +37,7 @@
         </provider>
 
         <activity android:name=".PhotoActivity" />
-        <activity android:name=".PhotoActivity2"></activity>
+        <activity android:name=".PhotoActivity2" android:label="View Photo"></activity>
     </application>
 
 </manifest>

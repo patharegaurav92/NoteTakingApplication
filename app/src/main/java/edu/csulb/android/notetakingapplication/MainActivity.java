@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         dop = new DatabaseOperations(this);
         long count = dop.getPhotoCount(dop);
         Log.v("count value ", "count" + count);
-        String[] photo_names = new String[(int)count];
+        final String[] photo_names = new String[(int)count];
         if(count > 0) {
             Cursor c = dop.getPhotoCaption(dop);
             for(int i=0;i<=count-1;i++){
@@ -69,8 +69,14 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                    // Toast.makeText(getBaseContext(),"Clicked",Toast.LENGTH_LONG).show();
                    // Log.v("Clicked","Clicked "+position);
+                    String photo_no=null;
                     position+=1;
-                    String photo_no = String.valueOf(position);
+                    Cursor cu = dop.getPhotoNumber(dop,photo_names[position-1]);
+                    while(cu.moveToNext()){
+                        photo_no = cu.getString(0);
+                    }
+
+
                     String caption = null;
                     String path=null;
                     Cursor cr=  dop.getPhotoInformation(dop,photo_no);

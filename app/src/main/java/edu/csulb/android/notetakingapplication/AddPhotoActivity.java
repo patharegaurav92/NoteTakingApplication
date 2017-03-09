@@ -85,7 +85,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                     }
                     DatabaseOperations db = new DatabaseOperations(ctx);
                     db.putInformation(db, caption_editText.getText().toString(), filePath.getAbsolutePath());
-                    Toast.makeText(getBaseContext(), "Photo added to database Successful", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getBaseContext(), "Photo added to database Successful", Toast.LENGTH_SHORT).show();
                     Intent view = new Intent(AddPhotoActivity.this, MainActivity.class);
                     startActivity(view);
                     finish();

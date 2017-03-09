@@ -63,6 +63,16 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         sq.delete(TABLE_NAME,null,null);
 
     }
+
+    public Cursor getPhotoNumber(DatabaseOperations dop,String photo_caption){
+        SQLiteDatabase sq = dop.getReadableDatabase();
+        String selection = TableData.TableInfo.PHOTO_CAPTION+" LIKE ?";
+        String columns[] = {TableData.TableInfo.PHOTO_NUMBER};
+        String args[] = {photo_caption};
+        Cursor cr= sq.query(TableData.TableInfo.TABLE_NAME,columns,selection,args,null,null,null);
+        return cr;
+    }
+
     public Cursor getPhotoInformation(DatabaseOperations dop,String photo_number){
         SQLiteDatabase sq = dop.getReadableDatabase();
         String selection = TableData.TableInfo.PHOTO_NUMBER+" LIKE ?";
