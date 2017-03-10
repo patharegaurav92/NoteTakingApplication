@@ -1,28 +1,23 @@
 package edu.csulb.android.notetakingapplication;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity {
     DatabaseOperations dop;
     String[] photo_names;
     ImageView img;
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                      //   .setAction("Action", null).show();
-                Intent i = new Intent(MainActivity.this,AddPhotoActivity.class);
+                Intent i = new Intent(ListActivity.this,AddPhotoActivity.class);
                 Bundle status = new Bundle();
                 status.putInt("status",1);
                 i.putExtras(status);
@@ -91,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         path = cr.getString(1);
                     }
                     Log.v("Caption and Path" ,"Cap:"+caption+" Path: "+path);
-                    Intent displayPhoto = new Intent(MainActivity.this,PhotoActivity2.class);
+                    Intent displayPhoto = new Intent(ListActivity.this,PhotoActivity2.class);
                     Bundle photoBundle = new Bundle();
                     photoBundle.putString("caption",caption);
                     photoBundle.putString("path",path);

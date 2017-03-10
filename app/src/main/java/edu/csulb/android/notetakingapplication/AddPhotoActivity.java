@@ -1,7 +1,6 @@
 package edu.csulb.android.notetakingapplication;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -10,16 +9,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,17 +25,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static android.R.attr.cacheColorHint;
-import static android.R.attr.path;
-import static edu.csulb.android.notetakingapplication.R.id.add;
 import static edu.csulb.android.notetakingapplication.R.id.imageView;
-import static java.lang.Boolean.FALSE;
 
 public class AddPhotoActivity extends AppCompatActivity {
 
@@ -88,7 +77,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                     DatabaseOperations db = new DatabaseOperations(ctx);
                     db.putInformation(db, caption_editText.getText().toString(), filePath.getAbsolutePath());
                    // Toast.makeText(getBaseContext(), "Photo added to database Successful", Toast.LENGTH_SHORT).show();
-                    Intent view = new Intent(AddPhotoActivity.this, MainActivity.class);
+                    Intent view = new Intent(AddPhotoActivity.this, ListActivity.class);
                     startActivity(view);
                     finish();
                 }

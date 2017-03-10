@@ -6,23 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
-
-import static android.R.attr.button;
-import static android.R.id.edit;
 
 public class PhotoActivity2 extends AppCompatActivity {
 TextView captionTextView;
@@ -74,7 +66,7 @@ TextView captionTextView;
                     }
                 }
 
-                Intent view = new Intent(PhotoActivity2.this,MainActivity.class);
+                Intent view = new Intent(PhotoActivity2.this,ListActivity.class);
                 startActivity(view);
 
             }
