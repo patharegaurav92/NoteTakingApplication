@@ -6,10 +6,8 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.ContactsContract;
 import android.util.Log;
 
-import static android.R.attr.name;
 import static edu.csulb.android.notetakingapplication.TableData.TableInfo.TABLE_NAME;
 
 /**
@@ -51,18 +49,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         Log.d("Database Operations","1 row inserted");
 
     }
-    public Cursor getInformation(DatabaseOperations dop){
-        SQLiteDatabase sq = dop.getReadableDatabase();
-        String[] columns = {TableData.TableInfo.PHOTO_ID,TableData.TableInfo.PHOTO_CAPTION, TableData.TableInfo.PHOTO_PATH, TableData.TableInfo.PHOTO_NUMBER};
-        Cursor CR = sq.query(TABLE_NAME,columns,null,null,null, null,null);
-        return CR;
 
-    }
-    public void deleteUser(DatabaseOperations dop){
-        SQLiteDatabase sq = dop.getWritableDatabase();
-        sq.delete(TABLE_NAME,null,null);
-
-    }
 
     public Cursor getPhotoNumber(DatabaseOperations dop,String photo_caption){
         SQLiteDatabase sq = dop.getReadableDatabase();
