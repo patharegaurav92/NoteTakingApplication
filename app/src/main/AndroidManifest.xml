@@ -37,7 +37,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".PhotoActivity" />
         <activity android:name=".PhotoActivity2" android:label="@string/viewPhoto" android:parentActivityName=".MainActivity"></activity>
     </application>
 
